@@ -13,6 +13,8 @@ enum httpStatusCode {
 }
 
 class GithubService {
+  
+  //Search Repoitories
   class func repositoriesForSearchTerm(searchTerm : String, completion: (data : NSData?, error : String?) -> ()){
     let baseURL = "http://localhost:3001/"
     //TODO 2 - Append for final URL
@@ -32,4 +34,11 @@ class GithubService {
     //TODO 5 - Check for errors
     //TODO 6 - Switch for HTTP Status Code - Maybe use an enum?
   }
+  //Search Users
+  
+  
+  //Update User Data - PATCH /user
+  
+  
+  //Create New Repo - POST /user/repos
 }

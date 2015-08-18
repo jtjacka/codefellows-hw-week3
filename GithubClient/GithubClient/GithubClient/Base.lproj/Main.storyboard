@@ -4,10 +4,42 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <scenes>
-        <!--Table View Controller-->
+        <!--View Controller-->
+        <scene sceneID="KaQ-2y-aj7">
+            <objects>
+                <viewController id="6SO-GB-GiI" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="In2-G5-wny"/>
+                        <viewControllerLayoutGuide type="bottom" id="V0B-TB-yh1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6Wb-Dj-OWr">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7CT-A9-9NG">
+                                <rect key="frame" x="279" y="285" width="43" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Log In">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerY" secondItem="7CT-A9-9NG" secondAttribute="centerY" id="WxS-wR-fnJ"/>
+                            <constraint firstAttribute="centerX" secondItem="7CT-A9-9NG" secondAttribute="centerX" id="aNE-O3-J6d"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7zR-hF-71H" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="583" y="-363"/>
+        </scene>
+        <!--Main Table View Controller-->
         <scene sceneID="9NH-PA-5eW">
             <objects>
-                <tableViewController id="Lmv-fN-yt7" sceneMemberID="viewController">
+                <tableViewController id="Lmv-fN-yt7" customClass="MainTableViewController" customModule="GithubClient" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="ZHM-vq-bpo">
                         <rect key="frame" x="0.0" y="64" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
