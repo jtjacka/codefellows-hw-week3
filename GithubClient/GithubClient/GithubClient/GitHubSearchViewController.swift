@@ -12,12 +12,15 @@ class GitHubSearchViewController: UIViewController {
   //Outlets
   @IBOutlet weak var searchBar: UISearchBar!
   @IBOutlet weak var tableView: UITableView!
+  
+  var repoArray : [GitHubRepo] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-     searchBar.delegate = self
+      searchBar.delegate = self
+      tableView.dataSource = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -38,11 +41,41 @@ class GitHubSearchViewController: UIViewController {
 
 }
 
+
+//MARK: Extend UISearchBarDelegate
 extension GitHubSearchViewController : UISearchBarDelegate {
   func searchBarSearchButtonClicked(searchBar: UISearchBar) {
     
     GithubService.repositoriesForSearchTerm(searchBar.text) { (data, error) -> () in
       //do something
+      if let searchData = data {
+        let repoData = GitHubJSONParser.ParseRepoSearchData(searchData)
+        //Assign and Reload New Data
+        NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
+          self.repoArray = repoData
+          self.tableView.reloadData()
+        })
+
+      }
     }
+  }
+}
+
+//MARK: Extend UITableViewDatasource
+extension GitHubSearchViewController : UITableViewDataSource {
+  func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return repoArray.count
+  }
+  
+  func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    let cell = tableView.dequeueReusableCellWithIdentifier("SearchCell", forIndexPath: indexPath) as! UITableViewCell
+    
+    let repo = repoArray[indexPath.row]
+    
+    cell.textLabel?.text = repo.name
+    cell.detailTextLabel?.text = repo.description
+    
+    
+    return cell
   }
 }

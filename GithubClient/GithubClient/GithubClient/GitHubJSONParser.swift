@@ -9,25 +9,37 @@
 import Foundation
 
 class GitHubJSONParser {
-  class func ParseRepoSearchData(data : NSData) -> GitHubRepo? {
+  class func ParseRepoSearchData(data : NSData) -> [GitHubRepo] {
+    var gitHubRepos : [GitHubRepo] = []
+    
     
     var error : NSError?
     
-    if let repoData = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: &error) as? [String : AnyObject]{
-      if let id = repoData["id"] as? Double,
-        name = repoData["name"] as? String,
-        fullName = repoData["full_name"] as? String,
-        owner = repoData["owner"] as? [String : AnyObject],
-        privateBool = repoData["private"] as? Bool,
-        htmlURL = repoData["html_url"] as? String,
-        description = repoData["description"] as? String {
-          
-          if let repoOwner = GitHubJSONParser.ParseUserSearchData(owner){
-            return GitHubRepo(id: id, name: name, owner: repoOwner, privateRepo: privateBool, htmlURL: htmlURL, description: description)
+    if let repoReturn = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: &error) as? [String : AnyObject]{
+      if let repoArray = repoReturn["items"] as? [[String : AnyObject]] {
+        
+        for repoData in repoArray {
+          if let id = repoData["id"] as? Double,
+            name = repoData["name"] as? String,
+            fullName = repoData["full_name"] as? String,
+            owner = repoData["owner"] as? [String : AnyObject],
+            privateBool = repoData["private"] as? Bool,
+            htmlURL = repoData["html_url"] as? String,
+            description = repoData["description"] as? String {
+              
+              if let repoOwner = GitHubJSONParser.ParseUserSearchData(owner){
+                let newRepo = GitHubRepo(id: id, name: name, owner: repoOwner, privateRepo: privateBool, htmlURL: htmlURL, description: description)
+                gitHubRepos.append(newRepo)
+              }
           }
+          
+        }
+        
+        
       }
+      
     }
-    return nil
+    return gitHubRepos
   }
   
   
