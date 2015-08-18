@@ -28,3 +28,23 @@ func highAndLowInt(numArray : [Int]) -> (highNumber : Int, lowNumber : Int) {
 highAndLowInt(testArray)
 highAndLowInt(testArray2)
 highAndLowInt(testArray3)
+
+
+//MARK: Tuesday
+let TestArray4 = [0,1,2,3,4]
+let TestArray5 = [0,1,2,3,4,5,6]
+
+func returnMiddleIndex(arr : [Int]) -> [Int] {
+  var arrToFix = arr
+  
+  // Remove Last Index
+  arrToFix.removeAtIndex(arr.count - 1)
+  // Remove First Index
+  arrToFix.removeAtIndex(0)
+
+  
+  return arrToFix
+}
+
+let returnArray = returnMiddleIndex(TestArray4)
+let returnArray2 = returnMiddleIndex(TestArray5)
