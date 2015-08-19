@@ -32,10 +32,8 @@ class GithubService {
       let additionalHeaders = ["Authorization" : "token \(token)"]
       config.HTTPAdditionalHeaders = additionalHeaders
     }
-
-    
-    
     let session = NSURLSession(configuration: config)
+    //Has to be done everytime because Apple says so
     
     //Concatenate URL
     let queryUrl = self.sharedService.baseURL + "search/repositories?q=\(searchTerm)"
