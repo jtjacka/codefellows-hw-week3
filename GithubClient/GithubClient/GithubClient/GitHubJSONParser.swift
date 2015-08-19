@@ -42,6 +42,25 @@ class GitHubJSONParser {
     return gitHubRepos
   }
   
+  class func ParseUserDataFromNSData(data : NSData) -> [GitHubUser] {
+    var error : NSError?
+    var newUsers : [GitHubUser] = []
+    
+    if let serializedData = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: &error) as? [String : AnyObject] {
+      
+      if let userArray = serializedData["items"] as? [[String:AnyObject]] {
+        
+        for user in userArray {
+          if let user = GitHubJSONParser.ParseUserSearchData(user) {
+            newUsers.append(user)
+          }
+        }
+      }
+    }
+    
+    return newUsers
+  }
+  
   
   class func ParseUserSearchData(userData : [String : AnyObject]) -> GitHubUser? {
     

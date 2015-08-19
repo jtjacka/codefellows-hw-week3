@@ -61,7 +61,7 @@
                                                     <rect key="frame" x="8" y="11" width="105" height="21"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -85,7 +85,7 @@
                                                     <rect key="frame" x="8" y="11" width="45" height="21"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -96,6 +96,9 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <animations/>
+                                        <connections>
+                                            <segue destination="q6D-Z4-01a" kind="show" id="VMy-KX-0AO"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -182,7 +185,92 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PaW-cq-ZXm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1309" y="482"/>
+            <point key="canvasLocation" x="1665" y="-42"/>
+        </scene>
+        <!--User Search View Controller-->
+        <scene sceneID="lrt-y3-zSk">
+            <objects>
+                <viewController storyboardIdentifier="UserSearchVC" title="User Search View Controller" id="q6D-Z4-01a" customClass="UserSearchViewController" customModule="GithubClient" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dmb-dn-Pyi"/>
+                        <viewControllerLayoutGuide type="bottom" id="SqZ-Mk-5vh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="HSs-4v-2x3">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" barStyle="black" text="" translatesAutoresizingMaskIntoConstraints="NO" id="Dt0-jK-SCB">
+                                <rect key="frame" x="0.0" y="64" width="600" height="44"/>
+                                <animations/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="sQw-XX-QS1">
+                                <rect key="frame" x="0.0" y="108" width="600" height="492"/>
+                                <animations/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="5EO-yd-xoS">
+                                    <size key="itemSize" width="100" height="100"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="UserCell" id="YLb-yl-Agd" customClass="UserCell" customModule="GithubClient" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EAU-SP-tT6">
+                                                    <rect key="frame" x="8" y="8" width="84" height="84"/>
+                                                    <animations/>
+                                                </imageView>
+                                            </subviews>
+                                            <animations/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <animations/>
+                                        <constraints>
+                                            <constraint firstItem="EAU-SP-tT6" firstAttribute="leading" secondItem="YLb-yl-Agd" secondAttribute="leadingMargin" id="0mR-fA-EhQ"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="EAU-SP-tT6" secondAttribute="trailing" id="45z-57-jdn"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="EAU-SP-tT6" secondAttribute="bottom" id="6EJ-gP-AFu"/>
+                                            <constraint firstItem="EAU-SP-tT6" firstAttribute="top" secondItem="YLb-yl-Agd" secondAttribute="topMargin" id="Bjf-Cm-jM7"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="profileImage" destination="EAU-SP-tT6" id="6PH-3D-l5S"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="SqZ-Mk-5vh" firstAttribute="top" secondItem="sQw-XX-QS1" secondAttribute="bottom" id="5aF-ui-upD"/>
+                            <constraint firstAttribute="trailing" secondItem="Dt0-jK-SCB" secondAttribute="trailing" id="DKu-Aa-R6a"/>
+                            <constraint firstItem="Dt0-jK-SCB" firstAttribute="leading" secondItem="HSs-4v-2x3" secondAttribute="leading" id="JVl-2w-aIS"/>
+                            <constraint firstItem="dmb-dn-Pyi" firstAttribute="top" secondItem="Dt0-jK-SCB" secondAttribute="top" id="P8I-N3-zL2"/>
+                            <constraint firstItem="Dt0-jK-SCB" firstAttribute="top" secondItem="HSs-4v-2x3" secondAttribute="top" id="dyz-ur-lMB"/>
+                            <constraint firstItem="sQw-XX-QS1" firstAttribute="top" secondItem="Dt0-jK-SCB" secondAttribute="bottom" id="hTi-pT-8iT"/>
+                            <constraint firstItem="Dt0-jK-SCB" firstAttribute="top" secondItem="HSs-4v-2x3" secondAttribute="topMargin" id="pxR-15-OfY"/>
+                            <constraint firstItem="sQw-XX-QS1" firstAttribute="leading" secondItem="HSs-4v-2x3" secondAttribute="leading" id="r6a-gk-Wbd"/>
+                            <constraint firstAttribute="trailing" secondItem="sQw-XX-QS1" secondAttribute="trailing" id="tjC-hi-ekM"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="dyz-ur-lMB"/>
+                                <exclude reference="pxR-15-OfY"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="sQw-XX-QS1" id="ALM-Y1-QRa"/>
+                        <outlet property="searchBar" destination="Dt0-jK-SCB" id="UB6-F6-cTX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KeY-e8-K8w" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1713" y="783"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="cSq-G0-ROB">

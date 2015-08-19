@@ -10,9 +10,18 @@ import UIKit
 
 class UserSearchViewController: UIViewController {
 
+  @IBOutlet weak var searchBar: UISearchBar!
+  @IBOutlet weak var collectionView: UICollectionView!
+  
+  var users : [GitHubUser] = []
+  
     override func viewDidLoad() {
         super.viewDidLoad()
+      
 
+      
+      
+        collectionView.dataSource = self
         // Do any additional setup after loading the view.
     }
 
@@ -20,6 +29,8 @@ class UserSearchViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+  
+  
     
 
     /*
@@ -32,4 +43,34 @@ class UserSearchViewController: UIViewController {
     }
     */
 
+}
+
+//MARK: Extend UISearchBarDelegate
+extension UserSearchViewController : UISearchBarDelegate {
+  func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+    
+    GithubService.usersForSearchTerm(searchBar.text, completion: { (data, error) -> () in
+      if let searchData = data {
+        self.users = GitHubJSONParser.ParseUserDataFromNSData(searchData)
+      }
+     })
+  }
+}
+
+//MARK: Extend UICollectionViewDataSource
+extension UserSearchViewController : UICollectionViewDataSource {
+  func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    return users.count
+  }
+  
+  func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    
+    let cell = collectionView.dequeueReusableCellWithReuseIdentifier("UserCell", forIndexPath: indexPath) as! UICollectionViewCell
+    
+    
+    
+    
+    return cell
+  }
+  
 }

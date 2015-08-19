@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 enum httpStatusCode {
   
@@ -56,10 +57,40 @@ class GithubService {
     //TODO 6 - Switch for HTTP Status Code - Maybe use an enum?
   }
   //TODO - Search Users
+  class func usersForSearchTerm(searchTerm : String, completion: (data : NSData?, error: String?) -> ()) {
+    //Set Up Session
+    let config = NSURLSessionConfiguration.defaultSessionConfiguration()
+    if let token = self.sharedService.token {
+      let additionalHeaders = ["Authorization" : "token \(token)"]
+      config.HTTPAdditionalHeaders = additionalHeaders
+    }
+    let session = NSURLSession(configuration: config)
+    //Has to be done everytime because Apple says so
+    
+    //Concatenate URL
+    let queryUrl = self.sharedService.baseURL + "search/users?q=\(searchTerm)"
+    let finalURL = NSURL(string: queryUrl)
+    
+    //Query GitHub for Repos
+    if let finalURL = finalURL {
+      session.dataTaskWithURL(finalURL, completionHandler: { (data, response, error) -> Void in
+        if let error = error {
+          //do something with error here
+        } else if let httpResponse = response as? NSHTTPURLResponse {
+          println(httpResponse.statusCode)
+          println(data)
+          completion(data: data, error: nil)
+        }
+      }).resume()
+    }
+  }
   
-  
+  //MARK : Download Image From Github URL
+  class func downloadImageFromGitHub(url : String, completion: (image : UIImage) -> ()) {
+    
+    
+  }
   //TODO - Update User Data - PATCH /user
-  
   
   //TODO - Create New Repo - POST /user/repos
 }
