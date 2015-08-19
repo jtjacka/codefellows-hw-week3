@@ -87,7 +87,14 @@ class GithubService {
   
   //MARK : Download Image From Github URL
   class func downloadImageFromGitHub(url : String, completion: (image : UIImage) -> ()) {
+    var imageURL = NSURL(string: url)
     
+    if let url = imageURL {
+      if let imageData = NSData(contentsOfURL: url),
+        image = UIImage(data: imageData) {
+          completion(image: image)
+      }
+    }
     
   }
   //TODO - Update User Data - PATCH /user

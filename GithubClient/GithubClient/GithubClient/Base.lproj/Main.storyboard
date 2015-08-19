@@ -185,7 +185,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PaW-cq-ZXm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1665" y="-42"/>
+            <point key="canvasLocation" x="1713" y="66"/>
         </scene>
         <!--User Search View Controller-->
         <scene sceneID="lrt-y3-zSk">
@@ -199,7 +199,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" barStyle="black" text="" translatesAutoresizingMaskIntoConstraints="NO" id="Dt0-jK-SCB">
+                            <searchBar contentMode="redraw" text="" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dt0-jK-SCB">
                                 <rect key="frame" x="0.0" y="64" width="600" height="44"/>
                                 <animations/>
                                 <textInputTraits key="textInputTraits"/>
@@ -230,6 +230,7 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <animations/>
+                                        <color key="backgroundColor" red="0.0" green="0.75096982759999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstItem="EAU-SP-tT6" firstAttribute="leading" secondItem="YLb-yl-Agd" secondAttribute="leadingMargin" id="0mR-fA-EhQ"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="EAU-SP-tT6" secondAttribute="trailing" id="45z-57-jdn"/>
@@ -247,21 +248,16 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="SqZ-Mk-5vh" firstAttribute="top" secondItem="sQw-XX-QS1" secondAttribute="bottom" id="5aF-ui-upD"/>
-                            <constraint firstAttribute="trailing" secondItem="Dt0-jK-SCB" secondAttribute="trailing" id="DKu-Aa-R6a"/>
-                            <constraint firstItem="Dt0-jK-SCB" firstAttribute="leading" secondItem="HSs-4v-2x3" secondAttribute="leading" id="JVl-2w-aIS"/>
-                            <constraint firstItem="dmb-dn-Pyi" firstAttribute="top" secondItem="Dt0-jK-SCB" secondAttribute="top" id="P8I-N3-zL2"/>
-                            <constraint firstItem="Dt0-jK-SCB" firstAttribute="top" secondItem="HSs-4v-2x3" secondAttribute="top" id="dyz-ur-lMB"/>
-                            <constraint firstItem="sQw-XX-QS1" firstAttribute="top" secondItem="Dt0-jK-SCB" secondAttribute="bottom" id="hTi-pT-8iT"/>
-                            <constraint firstItem="Dt0-jK-SCB" firstAttribute="top" secondItem="HSs-4v-2x3" secondAttribute="topMargin" id="pxR-15-OfY"/>
+                            <constraint firstItem="sQw-XX-QS1" firstAttribute="leading" secondItem="HSs-4v-2x3" secondAttribute="leading" id="7MQ-4m-KHs"/>
+                            <constraint firstItem="sQw-XX-QS1" firstAttribute="top" secondItem="Dt0-jK-SCB" secondAttribute="bottom" id="8XE-xy-sut"/>
+                            <constraint firstItem="Dt0-jK-SCB" firstAttribute="leading" secondItem="HSs-4v-2x3" secondAttribute="leading" id="QPx-jw-7oa"/>
+                            <constraint firstItem="Dt0-jK-SCB" firstAttribute="top" secondItem="dmb-dn-Pyi" secondAttribute="bottom" id="lwy-Tw-9uV"/>
                             <constraint firstItem="sQw-XX-QS1" firstAttribute="leading" secondItem="HSs-4v-2x3" secondAttribute="leading" id="r6a-gk-Wbd"/>
+                            <constraint firstAttribute="trailing" secondItem="Dt0-jK-SCB" secondAttribute="trailing" id="ryR-hy-bYg"/>
                             <constraint firstAttribute="trailing" secondItem="sQw-XX-QS1" secondAttribute="trailing" id="tjC-hi-ekM"/>
+                            <constraint firstItem="SqZ-Mk-5vh" firstAttribute="top" secondItem="sQw-XX-QS1" secondAttribute="bottom" id="xH8-wU-Q2a"/>
+                            <constraint firstAttribute="trailing" secondItem="sQw-XX-QS1" secondAttribute="trailing" id="z57-ap-tC4"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="dyz-ur-lMB"/>
-                                <exclude reference="pxR-15-OfY"/>
-                            </mask>
-                        </variation>
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="sQw-XX-QS1" id="ALM-Y1-QRa"/>

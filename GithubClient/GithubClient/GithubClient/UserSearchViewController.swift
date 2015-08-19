@@ -20,7 +20,7 @@ class UserSearchViewController: UIViewController {
       
 
       
-      
+        searchBar.delegate = self
         collectionView.dataSource = self
         // Do any additional setup after loading the view.
     }
@@ -51,7 +51,12 @@ extension UserSearchViewController : UISearchBarDelegate {
     
     GithubService.usersForSearchTerm(searchBar.text, completion: { (data, error) -> () in
       if let searchData = data {
-        self.users = GitHubJSONParser.ParseUserDataFromNSData(searchData)
+        
+        NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
+          self.users = GitHubJSONParser.ParseUserDataFromNSData(searchData)
+          self.collectionView.reloadData()
+        })
+
       }
      })
   }
@@ -65,7 +70,13 @@ extension UserSearchViewController : UICollectionViewDataSource {
   
   func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
     
-    let cell = collectionView.dequeueReusableCellWithReuseIdentifier("UserCell", forIndexPath: indexPath) as! UICollectionViewCell
+    let cell = collectionView.dequeueReusableCellWithReuseIdentifier("UserCell", forIndexPath: indexPath) as! UserCell
+    
+    let user = users[indexPath.row]
+    
+    GithubService.downloadImageFromGitHub(user.avatarUrl, completion: { (image) -> () in
+      cell.profileImage.image = image
+    })
     
     
     
