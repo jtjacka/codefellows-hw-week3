@@ -28,8 +28,13 @@ class GithubService {
   class func repositoriesForSearchTerm(searchTerm : String, completion: (data : NSData?, error : String?) -> ()){
     //Set Up Session
     let config = NSURLSessionConfiguration.defaultSessionConfiguration()
-    let additionalHeaders = ["Authorization" : "token \(self.sharedService.token)"]
-    config.HTTPAdditionalHeaders = additionalHeaders
+    if let token = self.sharedService.token {
+      let additionalHeaders = ["Authorization" : "token \(token)"]
+      config.HTTPAdditionalHeaders = additionalHeaders
+    }
+
+    
+    
     let session = NSURLSession(configuration: config)
     
     //Concatenate URL
