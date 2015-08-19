@@ -47,7 +47,6 @@ class GithubService {
           //do something with error here
         } else if let httpResponse = response as? NSHTTPURLResponse {
           println(httpResponse.statusCode)
-          println(data)
           completion(data: data, error: nil)
         }
       }).resume()
@@ -78,7 +77,6 @@ class GithubService {
           //do something with error here
         } else if let httpResponse = response as? NSHTTPURLResponse {
           println(httpResponse.statusCode)
-          println(data)
           completion(data: data, error: nil)
         }
       }).resume()

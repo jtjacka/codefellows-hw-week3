@@ -74,6 +74,8 @@ extension UserSearchViewController : UICollectionViewDataSource {
     
     let user = users[indexPath.row]
     
+    println(user.avatarUrl)
+    
     GithubService.downloadImageFromGitHub(user.avatarUrl, completion: { (image) -> () in
       cell.profileImage.image = image
     })
@@ -84,4 +86,11 @@ extension UserSearchViewController : UICollectionViewDataSource {
     return cell
   }
   
+}
+
+//MARK: Extend UICollectionViewDelegate
+extension UserSearchViewController : UICollectionViewDelegate {
+  func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+    
+  }
 }

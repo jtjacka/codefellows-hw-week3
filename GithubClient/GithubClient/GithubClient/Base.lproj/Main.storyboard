@@ -239,6 +239,7 @@
                                         </constraints>
                                         <connections>
                                             <outlet property="profileImage" destination="EAU-SP-tT6" id="6PH-3D-l5S"/>
+                                            <segue destination="yBr-rA-kVb" kind="show" id="BV4-gn-aE5"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -267,6 +268,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KeY-e8-K8w" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1713" y="783"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="DtE-zi-e2V">
+            <objects>
+                <viewController id="yBr-rA-kVb" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gzH-B6-NTH"/>
+                        <viewControllerLayoutGuide type="bottom" id="LZV-ia-IKJ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="LWO-mD-rdi">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0pl-M0-bDz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2435" y="783"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="cSq-G0-ROB">
