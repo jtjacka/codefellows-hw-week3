@@ -14,13 +14,31 @@ enum httpStatusCode {
 
 class GithubService {
   
+  //Create Singleton
+  static let sharedService = GithubService()
+  
+  let baseURL = "https://api.github.com/"
+  let token  = KeychainService.loadToken()
+
+
+  
+  private init() {}
+  
   //Search Repoitories
   class func repositoriesForSearchTerm(searchTerm : String, completion: (data : NSData?, error : String?) -> ()){
-    let baseURL = "http://localhost:3001/"
-    //TODO 2 - Append for final URL
-    let finalURL = NSURL(string: baseURL)
+    //Set Up Session
+    let config = NSURLSessionConfiguration.defaultSessionConfiguration()
+    let additionalHeaders = ["Authorization" : "token \(self.sharedService.token)"]
+    config.HTTPAdditionalHeaders = additionalHeaders
+    let session = NSURLSession(configuration: config)
+    
+    //Concatenate URL
+    let queryUrl = self.sharedService.baseURL + "search/repositories?q=\(searchTerm)"
+    let finalURL = NSURL(string: queryUrl)
+    
+    //Query GitHub for Repos
     if let finalURL = finalURL {
-      NSURLSession.sharedSession().dataTaskWithURL(finalURL, completionHandler: { (data, response, error) -> Void in
+      session.dataTaskWithURL(finalURL, completionHandler: { (data, response, error) -> Void in
         if let error = error {
           //do something with error here
         } else if let httpResponse = response as? NSHTTPURLResponse {
@@ -34,11 +52,11 @@ class GithubService {
     //TODO 5 - Check for errors
     //TODO 6 - Switch for HTTP Status Code - Maybe use an enum?
   }
-  //Search Users
+  //TODO - Search Users
   
   
-  //Update User Data - PATCH /user
+  //TODO - Update User Data - PATCH /user
   
   
-  //Create New Repo - POST /user/repos
+  //TODO - Create New Repo - POST /user/repos
 }

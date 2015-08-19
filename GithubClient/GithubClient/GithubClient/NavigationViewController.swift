@@ -1,14 +1,14 @@
 //
-//  LoginViewController.swift
+//  NavigationViewController.swift
 //  
 //
-//  Created by Jeffrey Jacka on 8/18/15.
+//  Created by Jeffrey Jacka on 8/19/15.
 //
 //
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class NavigationViewController: UINavigationController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,11 +21,6 @@ class LoginViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-  @IBAction func loginClicked(sender: AnyObject) {
-    
-    GitHubAuthService.performInitalRequest()
-    
-  }
 
     /*
     // MARK: - Navigation

@@ -16,6 +16,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
     // Override point for customization after application launch.
+    if let token = KeychainService.loadToken() {
+      //Do nothing?
+    } else {
+      let storyboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+      
+      if let loginVC = storyboard.instantiateViewControllerWithIdentifier("LoginViewController") as? LoginViewController {
+        window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        window?.makeKeyAndVisible()
+        window?.rootViewController = loginVC
+      }
+    }
+    
     return true
   }
   
