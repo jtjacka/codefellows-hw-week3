@@ -14,6 +14,7 @@ class UserSearchViewController: UIViewController {
   @IBOutlet weak var collectionView: UICollectionView!
   
   var users : [GitHubUser] = []
+  var imageQueue = NSOperationQueue()
   
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,13 +73,23 @@ extension UserSearchViewController : UICollectionViewDataSource {
     
     let cell = collectionView.dequeueReusableCellWithReuseIdentifier("UserCell", forIndexPath: indexPath) as! UserCell
     
+    //Cell Tagging
+    cell.tag++
+    let tag = cell.tag
+    
     let user = users[indexPath.row]
     
+    cell.profileImage.image = nil
     println(user.avatarUrl)
-    
-    GithubService.downloadImageFromGitHub(user.avatarUrl, completion: { (image) -> () in
-      cell.profileImage.image = image
+    imageQueue.addOperationWithBlock { () -> Void in
+      GithubService.downloadImageFromGitHub(user.avatarUrl, completion: { (image) -> () in
+        NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
+          if cell.tag == tag {
+            cell.profileImage.image = image
+          }
+        })
     })
+}
     
     return cell
   }

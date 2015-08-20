@@ -17,6 +17,9 @@ class GitHubSearchViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+      
+      // Set table view's background view property
+      tableView.backgroundView = BackgroundView()
 
         // Do any additional setup after loading the view.
       searchBar.delegate = self

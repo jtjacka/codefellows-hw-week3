@@ -25,10 +25,15 @@ class GitHubJSONParser {
             owner = repoData["owner"] as? [String : AnyObject],
             privateBool = repoData["private"] as? Bool,
             htmlURL = repoData["html_url"] as? String,
-            description = repoData["description"] as? String {
+            description = repoData["description"] as? String,
+            url = repoData["url"] as? String,
+          stargazersCount = repoData["stargazers_count"] as? Double,
+          watchersCount = repoData["watchers_count"] as? Double,
+          language = repoData["language"] as? String,
+          forksCount = repoData["forks_count"] as? Double {
               
               if let repoOwner = GitHubJSONParser.ParseUserSearchData(owner){
-                let newRepo = GitHubRepo(id: id, name: name, owner: repoOwner, privateRepo: privateBool, htmlURL: htmlURL, description: description)
+                let newRepo = GitHubRepo(id: id, name: name, owner: repoOwner, privateRepo: privateBool, htmlURL: htmlURL, description: description, url: url, stargazersCount: stargazersCount, watchersCount: watchersCount, language: language, forksCount: forksCount)
                 gitHubRepos.append(newRepo)
               }
           }
