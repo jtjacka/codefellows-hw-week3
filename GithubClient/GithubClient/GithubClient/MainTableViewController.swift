@@ -13,6 +13,9 @@ class MainTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
       
+      // Set table view's background view property
+      tableView.backgroundView = BackgroundView()
+      
       
 
         // Uncomment the following line to preserve selection between presentations
@@ -32,13 +35,13 @@ class MainTableViewController: UITableViewController {
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Potentially incomplete method implementation.
         // Return the number of sections.
-        return 0
+        return 2
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-        return 0
+        return 2
     }
 
     /*

@@ -1,25 +1,27 @@
 //
-//  LoginViewController.swift
+//  UserDetailViewController.swift
 //  
 //
-//  Created by Jeffrey Jacka on 8/18/15.
+//  Created by Jeffrey Jacka on 8/20/15.
 //
 //
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class UserDetailViewController: UIViewController {
 
-  @IBOutlet weak var loginButton: UIButton!
+  @IBOutlet weak var profileImage: UIImageView!
+  
+  var user : GitHubUser?
   
     override func viewDidLoad() {
         super.viewDidLoad()
       
-      NSNotificationCenter.defaultCenter().addObserver(self, selector: "newToken", name: kTokenNotification, object: nil)
-      
-      
-      self.view.bringSubviewToFront(self.loginButton)
-      println("login screen loaded")
+      if let image = user?.avatarUrl {
+        GithubService.downloadImageFromGitHub(image, completion: { (image) -> () in
+          self.profileImage.image = image
+        })
+      }
 
         // Do any additional setup after loading the view.
     }
@@ -29,15 +31,6 @@ class LoginViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-  @IBAction func loginClicked(sender: AnyObject) {
-    
-    GitHubAuthService.performInitalRequest()
-    
-  }
-  
-  func newToken() {
-    performSegueWithIdentifier("ShowMainScreen", sender: nil)
-  }
 
     /*
     // MARK: - Navigation
@@ -48,9 +41,5 @@ class LoginViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-  
-  deinit {
-    NSNotificationCenter.defaultCenter().removeObserver(self, name: kTokenNotification, object: nil)
-  }
 
 }

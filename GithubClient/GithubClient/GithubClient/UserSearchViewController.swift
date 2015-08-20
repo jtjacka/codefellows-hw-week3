@@ -30,18 +30,18 @@ class UserSearchViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
   
-  
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+      if segue.identifier == "ShowUserDetail" {
+          let destination = segue.destinationViewController as! UserDetailViewController
+          let cell = sender as! UserCell
+          let indexPath = collectionView.indexPathForCell(cell)
+        
+          destination.user = users[indexPath!.row]
+          destination.profileImage = cell.profileImage
+        
+        
+      }
     }
-    */
 
 }
 
@@ -80,9 +80,6 @@ extension UserSearchViewController : UICollectionViewDataSource {
       cell.profileImage.image = image
     })
     
-    
-    
-    
     return cell
   }
   
@@ -91,6 +88,6 @@ extension UserSearchViewController : UICollectionViewDataSource {
 //MARK: Extend UICollectionViewDelegate
 extension UserSearchViewController : UICollectionViewDelegate {
   func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-    
+    performSegueWithIdentifier("ShowUserDetail", sender: self)
   }
 }

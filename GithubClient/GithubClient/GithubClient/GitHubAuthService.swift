@@ -33,11 +33,12 @@ class GitHubAuthService {
           if let rootObject = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: &error) as? [String : AnyObject] {
             if let token = rootObject["access_token"] as? String {
               KeychainService.saveToken(token)
+              
+              NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
+                NSNotificationCenter.defaultCenter().postNotificationName(kTokenNotification, object: nil)
+              })
             }
-            
-            
           }
-
         }
       }).resume()
     }

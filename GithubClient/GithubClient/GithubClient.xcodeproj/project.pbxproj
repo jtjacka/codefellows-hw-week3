@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		1F193D0F1B82773D00036A2E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F193D0E1B82773D00036A2E /* AppDelegate.swift */; };
-		1F193D111B82773D00036A2E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F193D101B82773D00036A2E /* ViewController.swift */; };
 		1F193D141B82773D00036A2E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F193D121B82773D00036A2E /* Main.storyboard */; };
 		1F193D161B82773D00036A2E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F193D151B82773D00036A2E /* Images.xcassets */; };
 		1F193D191B82773D00036A2E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F193D171B82773D00036A2E /* LaunchScreen.xib */; };
@@ -27,6 +26,9 @@
 		1FD31B0F1B83A65900F8F792 /* GitHubRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD31B0E1B83A65900F8F792 /* GitHubRepo.swift */; };
 		1FF712151B85099D00CBA921 /* UserSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF712141B85099D00CBA921 /* UserSearchViewController.swift */; };
 		1FF712171B85135A00CBA921 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF712161B85135A00CBA921 /* UserCell.swift */; };
+		1FF9C26C1B86378800BB5954 /* UserDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF9C26B1B86378800BB5954 /* UserDetailViewController.swift */; };
+		1FF9C26E1B8641ED00BB5954 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF9C26D1B8641ED00BB5954 /* BackgroundView.swift */; };
+		1FF9C2711B864F8000BB5954 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF9C2701B864F8000BB5954 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,7 +45,6 @@
 		1F193D091B82773D00036A2E /* GithubClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GithubClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F193D0D1B82773D00036A2E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1F193D0E1B82773D00036A2E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1F193D101B82773D00036A2E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		1F193D131B82773D00036A2E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1F193D151B82773D00036A2E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		1F193D181B82773D00036A2E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -64,6 +65,9 @@
 		1FD31B0E1B83A65900F8F792 /* GitHubRepo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubRepo.swift; sourceTree = "<group>"; };
 		1FF712141B85099D00CBA921 /* UserSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSearchViewController.swift; sourceTree = "<group>"; };
 		1FF712161B85135A00CBA921 /* UserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
+		1FF9C26B1B86378800BB5954 /* UserDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailViewController.swift; sourceTree = "<group>"; };
+		1FF9C26D1B8641ED00BB5954 /* BackgroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
+		1FF9C2701B864F8000BB5954 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +123,7 @@
 				1F193D0E1B82773D00036A2E /* AppDelegate.swift */,
 				1F193D0D1B82773D00036A2E /* Info.plist */,
 				1F8D9ED81B83D348006AC0D6 /* Keys.swift */,
+				1FF9C2701B864F8000BB5954 /* Constants.swift */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -143,11 +148,11 @@
 		1F193D2E1B8287B200036A2E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				1FF9C26B1B86378800BB5954 /* UserDetailViewController.swift */,
 				1FF712141B85099D00CBA921 /* UserSearchViewController.swift */,
 				1F247A9E1B84FB8800919464 /* NavigationViewController.swift */,
 				1F8D9EDC1B83EC31006AC0D6 /* LoginViewController.swift */,
 				1F8D9EDA1B83E0BC006AC0D6 /* MainTableViewController.swift */,
-				1F193D101B82773D00036A2E /* ViewController.swift */,
 				1FD31B0A1B83A27200F8F792 /* GitHubSearchViewController.swift */,
 			);
 			name = Controller;
@@ -169,6 +174,7 @@
 		1F193D301B8287BD00036A2E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				1FF9C26D1B8641ED00BB5954 /* BackgroundView.swift */,
 				1F4651C11B83B54300AC1500 /* SearchCell.swift */,
 				1F193D121B82773D00036A2E /* Main.storyboard */,
 				1F193D151B82773D00036A2E /* Images.xcassets */,
@@ -222,11 +228,18 @@
 		1F193D011B82773D00036A2E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0640;
 				ORGANIZATIONNAME = "Jeffrey Jacka";
 				TargetAttributes = {
 					1F193D081B82773D00036A2E = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = Q8PZCV3AY4;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 0;
+							};
+						};
 					};
 					1F193D1D1B82773D00036A2E = {
 						CreatedOnToolsVersion = 6.4;
@@ -278,10 +291,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1FF9C26E1B8641ED00BB5954 /* BackgroundView.swift in Sources */,
+				1FF9C26C1B86378800BB5954 /* UserDetailViewController.swift in Sources */,
 				1F8D9EDD1B83EC31006AC0D6 /* LoginViewController.swift in Sources */,
 				1F8D9EDF1B84E663006AC0D6 /* KeyChainService.swift in Sources */,
 				1F8D9EDB1B83E0BC006AC0D6 /* MainTableViewController.swift in Sources */,
-				1F193D111B82773D00036A2E /* ViewController.swift in Sources */,
 				1FF712151B85099D00CBA921 /* UserSearchViewController.swift in Sources */,
 				1F4651C21B83B54300AC1500 /* SearchCell.swift in Sources */,
 				1F8D9ED71B83D273006AC0D6 /* GitHubAuthService.swift in Sources */,
@@ -294,6 +308,7 @@
 				1F193D321B82887D00036A2E /* GithubService.swift in Sources */,
 				1F247A9F1B84FB8800919464 /* NavigationViewController.swift in Sources */,
 				1F8D9ED91B83D348006AC0D6 /* Keys.swift in Sources */,
+				1FF9C2711B864F8000BB5954 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -422,9 +437,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = GithubClient/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -432,9 +450,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = GithubClient/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

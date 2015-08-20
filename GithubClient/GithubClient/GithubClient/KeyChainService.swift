@@ -3,7 +3,7 @@ import Security
 
 // Identifiers
 let userAccount = "github"
-let accessGroup = "MySerivice"
+let accessGroup = "MyService"
 
 // Arguments for the keychain queries
 let kSecClassValue = kSecClass as NSString
@@ -67,7 +67,7 @@ class KeychainService: NSObject {
     } else {
       println("Nothing was retrieved from the keychain. Status code \(status)")
     }
-    dataTypeRef?.release()
+    //dataTypeRef?.release()
     return contentsOfKeychain
   }
 }
