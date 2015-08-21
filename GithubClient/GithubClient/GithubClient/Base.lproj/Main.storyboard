@@ -76,7 +76,7 @@
             <objects>
                 <tableViewController id="Lmv-fN-yt7" customClass="MainTableViewController" customModule="GithubClient" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="ZHM-vq-bpo">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -184,11 +184,11 @@
                         <viewControllerLayoutGuide type="bottom" id="cyC-Ki-paI"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Djj-sK-Q6l">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="128" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="fG7-iY-LeV">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -208,6 +208,9 @@
                                         </tableViewCellContentView>
                                         <animations/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <segue destination="cNC-Gm-GMP" kind="show" id="zE0-AQ-gUz"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -239,15 +242,15 @@
                         <viewControllerLayoutGuide type="bottom" id="SqZ-Mk-5vh"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="HSs-4v-2x3">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" barStyle="black" text="" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dt0-jK-SCB">
+                            <searchBar contentMode="redraw" misplaced="YES" barStyle="black" text="" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dt0-jK-SCB">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                 <animations/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="sQw-XX-QS1">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="sQw-XX-QS1">
                                 <rect key="frame" x="0.0" y="44" width="600" height="492"/>
                                 <animations/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="5EO-yd-xoS">
@@ -312,6 +315,25 @@
             </objects>
             <point key="canvasLocation" x="1713" y="783"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="16w-WZ-blJ">
+            <objects>
+                <viewController id="cNC-Gm-GMP" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="RTr-rX-5s6"/>
+                        <viewControllerLayoutGuide type="bottom" id="uAK-X0-C3a"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="V1o-Nu-CXV">
+                        <rect key="frame" x="0.0" y="64" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JCT-2g-DbU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2422" y="66"/>
+        </scene>
         <!--User Detail View Controller-->
         <scene sceneID="DtE-zi-e2V">
             <objects>
@@ -321,11 +343,11 @@
                         <viewControllerLayoutGuide type="bottom" id="LZV-ia-IKJ"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="LWO-mD-rdi">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wal-zd-Hn1">
-                                <rect key="frame" x="200" y="168" width="200" height="200"/>
+                                <rect key="frame" x="200" y="200" width="200" height="200"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="Jk8-86-TGe"/>
@@ -352,11 +374,11 @@
         <scene sceneID="cSq-G0-ROB">
             <objects>
                 <navigationController id="Rp2-eU-XA0" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="BRW-qo-6Bk">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="BRW-qo-6Bk">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <animations/>
-                        <color key="barTintColor" red="0.5086476293103448" green="0.17427262931034482" blue="0.87843137250000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.28235294117647058" green="0.15294117647058825" blue="0.47058823529411764" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="20"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

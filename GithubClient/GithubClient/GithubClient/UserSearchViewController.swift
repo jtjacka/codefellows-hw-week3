@@ -13,18 +13,25 @@ class UserSearchViewController: UIViewController {
   @IBOutlet weak var searchBar: UISearchBar!
   @IBOutlet weak var collectionView: UICollectionView!
   
+  let transition = ToUserDetailViewAnimationController()
   var users : [GitHubUser] = []
   var imageQueue = NSOperationQueue()
   
     override func viewDidLoad() {
         super.viewDidLoad()
       
-
-      
         searchBar.delegate = self
         collectionView.dataSource = self
         // Do any additional setup after loading the view.
     }
+  
+  override func viewWillAppear(animated: Bool) {
+    navigationController?.delegate = self
+  }
+  
+  override func viewWillDisappear(animated: Bool) {
+    navigationController?.delegate = nil
+  }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -100,5 +107,12 @@ extension UserSearchViewController : UICollectionViewDataSource {
 extension UserSearchViewController : UICollectionViewDelegate {
   func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
     performSegueWithIdentifier("ShowUserDetail", sender: self)
+  }
+}
+
+//MARK: Extend UINavigationControllerDelegate
+extension UserSearchViewController : UINavigationControllerDelegate {
+  func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    return toVC is UserDetailViewController ? ToUserDetailViewAnimationController() : nil
   }
 }

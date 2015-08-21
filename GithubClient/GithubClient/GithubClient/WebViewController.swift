@@ -1,5 +1,5 @@
 //
-//  UserDetailViewController.swift
+//  WebViewController.swift
 //  
 //
 //  Created by Jeffrey Jacka on 8/20/15.
@@ -7,23 +7,19 @@
 //
 
 import UIKit
+import WebKit
 
-class UserDetailViewController: UIViewController {
 
-  @IBOutlet weak var profileImage: UIImageView!
-  
-  var user : GitHubUser?
-  
+class WebViewController: UIViewController {
+
     override func viewDidLoad() {
         super.viewDidLoad()
       
-      //
+      let webView = WKWebView(frame: view.frame)
+      view.addSubview(webView)
       
-      if let image = user?.avatarUrl {
-        GithubService.downloadImageFromGitHub(image, completion: { (image) -> () in
-          self.profileImage.image = image
-        })
-      }
+      //TODO - Create URL Request
+      //TODO - Load Request
 
         // Do any additional setup after loading the view.
     }
