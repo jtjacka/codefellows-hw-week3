@@ -71,5 +71,16 @@ almostMultipeOfTen(22)
 almostMultipeOfTen(19)
 
 
+//Mark: Thursday
+
+func doubleLetters(stringToEdit : String) -> String {
+    let arrayFromString = Array(stringToEdit)
+    
+    
+    
+    
+    return "string"
+}
+
 
  
