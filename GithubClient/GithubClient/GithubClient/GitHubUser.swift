@@ -16,5 +16,18 @@ struct GitHubUser {
   let url : String
   let receivedEventsURL : String
   let type : String
+  //Requires full api call
+  let name : String?
+  let blogUrl : String?
+  let location : String?
+  let email : String?
+  let hireable : Bool?
+  let bio : String?
+  let joinDate : String?
+  let publicReposCount : Int?
+  let followers : Int?
+  let following : Int?
 }
+
+
 

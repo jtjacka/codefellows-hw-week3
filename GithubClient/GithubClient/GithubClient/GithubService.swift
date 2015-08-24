@@ -95,6 +95,35 @@ class GithubService {
     }
     
   }
+  
+  //MARK: Get Additional User Info
+  class func getUserInfo(searchTerm : String, completion: (data : NSData?, error: String?) -> ()) {
+    //Set Up Session
+    let config = NSURLSessionConfiguration.defaultSessionConfiguration()
+    if let token = self.sharedService.token {
+      let additionalHeaders = ["Authorization" : "token \(token)"]
+      config.HTTPAdditionalHeaders = additionalHeaders
+    }
+    let session = NSURLSession(configuration: config)
+    //Has to be done everytime because Apple says so
+    
+    //Concatenate URL
+    let queryUrl = self.sharedService.baseURL + "users/\(searchTerm)"
+    let finalURL = NSURL(string: queryUrl)
+    
+    //Query GitHub for Repos
+    if let finalURL = finalURL {
+      session.dataTaskWithURL(finalURL, completionHandler: { (data, response, error) -> Void in
+        if let error = error {
+          //do something with error here
+        } else if let httpResponse = response as? NSHTTPURLResponse {
+          println(httpResponse.statusCode)
+          completion(data: data, error: nil)
+        }
+      }).resume()
+    }
+  }
+  
   //TODO - Update User Data - PATCH /user
   
   //TODO - Create New Repo - POST /user/repos

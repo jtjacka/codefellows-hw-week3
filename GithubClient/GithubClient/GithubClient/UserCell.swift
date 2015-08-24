@@ -11,5 +11,6 @@ import UIKit
 class UserCell: UICollectionViewCell {
     
   @IBOutlet weak var profileImage: UIImageView!
+  @IBOutlet weak var profileNameLabel: UILabel!
   
 }

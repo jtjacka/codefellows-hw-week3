@@ -24,7 +24,7 @@ extension ToUserDetailViewAnimationController : UIViewControllerAnimatedTransiti
       //This is where the animation goes
     
       if let fromVC = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey) as? UserSearchViewController,
-        toVC = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey) as? UserDetailViewController {
+        toVC = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey) as? UserDetailTableViewController {
           
           println("First set of if lets in animation")
           

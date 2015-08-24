@@ -66,6 +66,15 @@ class GitHubJSONParser {
     return newUsers
   }
   
+  class func ParseUserFromSpecificUser(data: NSData) -> GitHubUser? {
+    var error: NSError?
+    
+    if let serializedData = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: &error) as? [String : AnyObject] {
+       return GitHubJSONParser.ParseUserSearchData(serializedData)
+    }
+   return nil
+  }
+  
   
   class func ParseUserSearchData(userData : [String : AnyObject]) -> GitHubUser? {
     
@@ -77,8 +86,22 @@ class GitHubJSONParser {
       receivedEventsURL = userData["received_events_url"] as? String,
       type = userData["type"] as? String {
         
-        return GitHubUser(login: login, id: id, avatarUrl: avatarUrl, gravatarId: gravatarId, url: profileURL, receivedEventsURL: receivedEventsURL, type: type)
-        
+        if let name = userData["name"] as? String {
+            let blog = userData["blog"] as? String
+            let email = userData["email"] as? String
+            let hireable = userData["hireable"] as? Bool
+            let bio = userData["bio"] as? String
+            let joinData = userData["created_at"] as? String
+            let publicRepos = userData["public_repos"] as? Int
+            let followers = userData["followers"] as? Int
+            let following = userData["following"] as? Int
+            let location = userData["location"] as? String
+            
+            return GitHubUser(login: login, id: id, avatarUrl: avatarUrl, gravatarId: gravatarId, url: profileURL, receivedEventsURL: receivedEventsURL, type: type, name: name, blogUrl: blog, location: location, email: email, hireable: hireable, bio: bio, joinDate: joinData, publicReposCount: publicRepos, followers: followers, following: following)
+        }
+        else {
+          return GitHubUser(login: login, id: id, avatarUrl: avatarUrl, gravatarId: gravatarId, url: profileURL, receivedEventsURL: receivedEventsURL, type: type, name: nil, blogUrl: nil, location: nil, email: nil, hireable: nil, bio: nil, joinDate: nil, publicReposCount: nil, followers: nil, following: nil)
+        }
     }
     return nil
   }

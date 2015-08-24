@@ -45,8 +45,12 @@ class MainTableViewController: UITableViewController {
     }
 
   override func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+    
+    //Change look of header for sections
     let header = view as! UITableViewHeaderFooterView
     header.textLabel.textColor = UIColor.whiteColor()
+    header.textLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 15.0)
+    
   }
   
     /*

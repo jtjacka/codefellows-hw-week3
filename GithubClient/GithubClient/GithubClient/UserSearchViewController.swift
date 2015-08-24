@@ -22,7 +22,11 @@ class UserSearchViewController: UIViewController {
       
         searchBar.delegate = self
         collectionView.dataSource = self
-        // Do any additional setup after loading the view.
+      
+      
+      //Set Background to Match
+      collectionView.backgroundView = BackgroundView()
+      
     }
   
   override func viewWillAppear(animated: Bool) {
@@ -40,7 +44,7 @@ class UserSearchViewController: UIViewController {
   
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
       if segue.identifier == "ShowUserDetail" {
-          let destination = segue.destinationViewController as! UserDetailViewController
+          let destination = segue.destinationViewController as! UserDetailTableViewController
           let cell = sender as! UserCell
           let indexPath = collectionView.indexPathForCell(cell)
         
@@ -86,6 +90,8 @@ extension UserSearchViewController : UICollectionViewDataSource {
     
     let user = users[indexPath.row]
     
+    cell.profileNameLabel.text = user.login
+    
     cell.profileImage.image = nil
     println(user.avatarUrl)
     imageQueue.addOperationWithBlock { () -> Void in
@@ -113,6 +119,6 @@ extension UserSearchViewController : UICollectionViewDelegate {
 //MARK: Extend UINavigationControllerDelegate
 extension UserSearchViewController : UINavigationControllerDelegate {
   func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-    return toVC is UserDetailViewController ? ToUserDetailViewAnimationController() : nil
+    return toVC is UserDetailTableViewController ? ToUserDetailViewAnimationController() : nil
   }
 }

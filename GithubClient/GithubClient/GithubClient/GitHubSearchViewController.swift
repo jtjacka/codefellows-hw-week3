@@ -54,7 +54,7 @@ class GitHubSearchViewController: UIViewController {
 extension GitHubSearchViewController : UISearchBarDelegate {
   func searchBarSearchButtonClicked(searchBar: UISearchBar) {
     
-    GithubService.repositoriesForSearchTerm(searchBar.text) { (data, error) -> () in
+    GithubService.repositoriesForSearchTerm(searchBar.text!) { (data, error) -> () in
       //do something
       if let searchData = data {
         let repoData = GitHubJSONParser.ParseRepoSearchData(searchData)
