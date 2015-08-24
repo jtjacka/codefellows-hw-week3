@@ -74,13 +74,20 @@ almostMultipeOfTen(19)
 //Mark: Thursday
 
 func doubleLetters(stringToEdit : String) -> String {
-    let arrayFromString = Array(stringToEdit)
+    var arrayFromString = Array(stringToEdit)
+    var resultArray : [Character] = []
     
-    
-    
-    
-    return "string"
+    for char in arrayFromString {
+        resultArray.append(char)
+        resultArray.append(char)
+    }
+
+    return String(resultArray)
 }
+
+doubleLetters("test")
+doubleLetters("jeff")
+doubleLetters("testcomplete")
 
 
  
